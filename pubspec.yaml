@@ -41,6 +41,7 @@ dependencies:
   eva_icons_flutter: ^3.1.0
   carbon_icons: ^0.0.1+2
   get: ^4.6.5
+  pinput: ^2.2.31
 
 dev_dependencies:
   flutter_test:

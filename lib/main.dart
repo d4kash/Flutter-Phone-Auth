@@ -5,6 +5,8 @@ import 'package:phone_auth/Constants/Constants.dart';
 import 'package:phone_auth/Screens/page_home.dart';
 
 import 'package:phone_auth/Screens/page_login.dart';
+import 'package:phone_auth/Screens/page_otp.dart';
+import 'package:phone_auth/Screens/page_phone.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -27,6 +29,6 @@ class MyApp extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
           backgroundColor: Constant.buttonColor,
         ))),
-        home: const HomePage());
+        home: const OtpPage());
   }
 }
