@@ -9,7 +9,7 @@ class HouseKeeping {
   static String verifyUserPhoneNumber(String phoneNumber) {
     var receivedID;
     auth.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
+      phoneNumber: "+91$phoneNumber",
       verificationCompleted: (PhoneAuthCredential credential) async {
         await auth.signInWithCredential(credential).then(
               (value) => print('Logged In Successfully'),
@@ -32,7 +32,7 @@ class HouseKeeping {
   verify otp
   
   */
-  Future<UserCredential> verifyOTPCode(String receivedID, otp) async {
+  static Future<UserCredential> verifyOTPCode(String receivedID, otp) async {
     UserCredential? userCredential;
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
       verificationId: receivedID,

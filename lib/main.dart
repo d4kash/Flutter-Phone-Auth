@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:phone_auth/Constants/Constants.dart';
+
 import 'package:phone_auth/Screens/page_home.dart';
 
-import 'package:phone_auth/Screens/page_login.dart';
-import 'package:phone_auth/Screens/page_otp.dart';
-import 'package:phone_auth/Screens/page_phone.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,13 +22,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(
           backgroundColor: Constant.buttonColor,
         ))),
-        home: const OtpPage());
+        home: const HomePage());
+        // home: const OtpPage(recievedId: '',));
   }
 }

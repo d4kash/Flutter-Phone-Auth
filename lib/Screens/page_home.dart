@@ -3,6 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 import 'package:phone_auth/Constants/Constants.dart';
+import 'package:phone_auth/Screens/page_phone.dart';
 import 'package:phone_auth/Widget/CustomButton.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,11 +20,11 @@ class HomePage extends StatelessWidget {
           const Center(
             child: Icon(
               CarbonIcons.image,
-              size: 50,
+              size: 70,
             ),
           ),
           Constant.sizedBoxH(
-            40,
+            30,
           ),
           const Text(
             "Please select your Language",
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
             "You can change the language\nat any time",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 18,
             ),
           ),
           Constant.sizedBoxH(
@@ -51,7 +52,10 @@ class HomePage extends StatelessWidget {
               height: Constant.height / 10,
               child: CustomButton(
                 name: "NEXT",
-                onPressed: () => null,
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: ((context) =>const PhonePage())));
+                },
               )),
         ],
       ),
