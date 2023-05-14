@@ -23,7 +23,7 @@ class HouseKeeping {
       },
       verificationFailed: (FirebaseAuthException e) {
         // print(e.message);
-        
+        controller.isLoading.value = false;
        
         // Constant.scaffold("${e.message}");
       },

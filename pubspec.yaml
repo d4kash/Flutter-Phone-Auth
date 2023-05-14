@@ -44,6 +44,7 @@ dependencies:
   pinput: ^2.2.31
   flutter_native_splash: ^2.2.19
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
