@@ -19,12 +19,12 @@ class PhonePage extends StatelessWidget {
     final TextEditingController phoneController = TextEditingController();
     RxString phoneNumber = ''.obs;
     // RxBool _isLoading = false.obs;
-    return Obx(() => SafeArea(
+    return  SafeArea(
           child: Scaffold(
               body: Padding(
             padding: EdgeInsets.only(
                 left: Constant.width / 50, right: Constant.width / 50),
-            child: controller.isLoading.value
+            child:Obx(() => controller.isLoading.value
                 ? const Center(child: CircularProgressIndicator())
                 : Column(
                     children: [
@@ -65,6 +65,7 @@ class PhonePage extends StatelessWidget {
                         child: IntlPhoneField(
                           validator: (p0) {},
                           controller: phoneController,
+                          readOnly: controller.isLoading.value,
                           initialCountryCode: 'IN',
                           decoration: const InputDecoration(
                             hintText: 'Phone Number',
@@ -96,7 +97,7 @@ class PhonePage extends StatelessWidget {
                                       controller,
                                       context);
 
-                                  controller.isLoading.value = false;
+                                  // controller.isLoading.value = false;
                                 } on Exception catch (e) {
                                   controller.isLoading.value = false;
                                   print(e.toString());

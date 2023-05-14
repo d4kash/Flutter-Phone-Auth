@@ -22,14 +22,14 @@ class HouseKeeping {
         );
       },
       verificationFailed: (FirebaseAuthException e) {
-        print(e.message);
+        // print(e.message);
         
        
         // Constant.scaffold("${e.message}");
       },
       codeSent: (String verificationId, int? resendToken) {
         controller.receivedID.value = verificationId;
-
+controller.isLoading.value = false;
         // print("receivedID: ${ controller.receivedID}");
         Navigator.push(
           context,
