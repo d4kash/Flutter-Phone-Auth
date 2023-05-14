@@ -42,6 +42,7 @@ dependencies:
   carbon_icons: ^0.0.1+2
   get: ^4.6.5
   pinput: ^2.2.31
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:

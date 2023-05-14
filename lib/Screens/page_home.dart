@@ -11,55 +11,54 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.only(top: Constant.height / 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Center(
-            child: Icon(
-              CarbonIcons.image,
-              size: 70,
-            ),
-          ),
-          Constant.sizedBoxH(
-            30,
-          ),
-          const Text(
-            "Please select your Language",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          Constant.sizedBoxH(
-            40,
-          ),
-          const Text(
-            "You can change the language\nat any time",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 18,
-            ),
-          ),
-          Constant.sizedBoxH(
-            40,
-          ),
-          SizedBox(width: Constant.width / 1.5, child: const DropDown()),
-          Constant.sizedBoxH(
-            40,
-          ),
-          SizedBox(
-              width: Constant.width / 1.45,
-              height: Constant.height / 10,
-              child: CustomButton(
-                name: "NEXT",
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: ((context) =>const PhonePage())));
-                },
-              )),
-        ],
-      ),
-    ));
+    return SafeArea(
+      child: Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Center(
+                child: Icon(
+                  CarbonIcons.image,
+                  size: 70,
+                ),
+              ),
+              Constant.sizedBoxH(
+                30,
+              ),
+              const Text(
+                "Please select your Language",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+              Constant.sizedBoxH(
+                40,
+              ),
+              const Text(
+                "You can change the language\nat any time",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              Constant.sizedBoxH(
+                40,
+              ),
+              SizedBox(width: Constant.width / 1.5, child: const DropDown()),
+              Constant.sizedBoxH(
+                40,
+              ),
+              SizedBox(
+                  width: Constant.width / 1.45,
+                  height: Constant.height / 10,
+                  child: CustomButton(
+                    name: "NEXT",
+                    onPressed: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: ((context) => PhonePage())));
+                    },
+                  )),
+            ],
+          )),
+    );
   }
 }
 

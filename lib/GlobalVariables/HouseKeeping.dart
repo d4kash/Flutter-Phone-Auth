@@ -1,4 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:phone_auth/Constants/Constants.dart';
+import 'package:phone_auth/Controller/phone_controller.dart';
+import 'package:phone_auth/Screens/page_otp.dart';
 
 class HouseKeeping {
   static FirebaseAuth auth = FirebaseAuth.instance;
@@ -6,26 +10,40 @@ class HouseKeeping {
   varify phone number
   
   */
-  static String verifyUserPhoneNumber(String phoneNumber) {
-    var receivedID;
-    auth.verifyPhoneNumber(
+  static void verifyUserPhoneNumber(
+      String phoneNumber, PhoneController controller, context)  async{
+    await auth.verifyPhoneNumber(
       phoneNumber: "+91$phoneNumber",
       verificationCompleted: (PhoneAuthCredential credential) async {
         await auth.signInWithCredential(credential).then(
-              (value) => print('Logged In Successfully'),
-            );
+          (value) {
+            print('Logged In Successfully');
+          },
+        );
       },
       verificationFailed: (FirebaseAuthException e) {
         print(e.message);
+        
+       
+        // Constant.scaffold("${e.message}");
       },
       codeSent: (String verificationId, int? resendToken) {
-        receivedID = verificationId;
-        // otpFieldVisibility = true;
-        // setState(() {});
+        controller.receivedID.value = verificationId;
+
+        // print("receivedID: ${ controller.receivedID}");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => OtpPage(
+                    recievedId: controller.receivedID.value,
+                    phoneNumber: phoneNumber,
+                  )),
+        );
       },
-      codeAutoRetrievalTimeout: (String verificationId) {},
+      codeAutoRetrievalTimeout: (String verificationId) {
+        // Constant.scaffold("Timed out waiting for SMS");
+      },
     );
-    return receivedID;
   }
 
   /* 
